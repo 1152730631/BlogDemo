@@ -5,9 +5,9 @@
  * Date: 17/5/4
  * Time: 下午7:15
  */
-namespace Home\Controller;
+namespace Admin\Controller;
 
-use Home\Model\IndexModel;
+use Admin\Model\IndexModel;
 
 class IndexController{
 

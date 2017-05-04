@@ -27,6 +27,7 @@ final class Frame
     /*②初始化配置文件*/
     private static function initConfig(){
         $GLOBALS["config"] = require_once(APP_PATH.DS."Conf".DS."Config.php");
+
     }
     /*③获取路由参数*/
     private static function initRoute(){
