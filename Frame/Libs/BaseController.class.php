@@ -39,4 +39,24 @@ class BaseController
 
     }
 
+    /*跳转方法*/
+    protected function jump($message, $url = "?", $time = 3)
+    {
+//        echo $msg;
+//        //跳转到列表页
+//        header("refresh:{$tiem};url={$url}");
+//        exit();
+        //使用以下一行代码替代上面三行代码
+        //向视图文件jump.html赋值
+        $this->smarty->assign(
+            array(
+            'message' => $message,
+            'url' => $url,
+            'time' => $time
+        ));
+
+        $this->smarty->display("Public" . DS . "jump.html");
+        exit();
+    }
+
 }
