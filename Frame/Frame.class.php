@@ -42,7 +42,9 @@ final class Frame
     }
     /*④常用常量的设置*/
     private static function initConst(){
-        define("VIEW_PATH",APP_PATH."View".DS.CONTROLLER.DS);//添加视图路径常量//blogdemo/Home/View
+        //define("VIEW_PATH",APP_PATH."View".DS.CONTROLLER.DS); //添加视图路径常量//blogdemo/Home/View
+        define("VIEW_PATH",APP_PATH."View".DS);//添加视图路径常量//blogdemo/Home/View
+        define("FRAME_PATH",ROOT_PATH."Frame".DS);            //添加视图路径常量//blogdemo/Home/View
     }
     /*⑤类的自动加载*/
     private static function initAutoLoad(){

@@ -13,7 +13,7 @@ return array(
     'db_port'	=> '3306',
     'db_user'	=> 'root',
     'db_pass'	=> '12345',
-    'db_name'	=> 'itcast',
+    'db_name'	=> 'blog',
     'charset'	=> 'utf8',
 
 //    默认参数配置

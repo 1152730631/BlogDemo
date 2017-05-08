@@ -14,7 +14,7 @@ class IndexController{
     public function index(){
         $modelObj = new IndexModel();
         $arrs = $modelObj->fetchAll();
-        include VIEW_PATH."StudnetView.php";
+
     }
 
 }

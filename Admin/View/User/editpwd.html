@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<load href="../Public/Css/public.css" />
+<title>{$typename}管理</title>
+</head>
+
+<body leftmargin="2" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu="self.event.returnValue=false">
+<noscript><iframe src=*.html></iframe></noscript>
+<table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" class="border">
+	<tr class="topbg"><td>{$typename}管理</td></tr>
+	<tr class="tdbg">
+	  <td height="30">&nbsp;&nbsp;<a href="__URL__/editpwd">管理首页</a></td>
+	</tr>
+</table>
+<br />
+<form id="form1" name="form1" method="post" action="__URL__/editpwdSave" onsubmit="return checkForm()">
+  <table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
+    <tr class="title">
+      <td colspan="2" align="center">修改{$typename}密码</td>
+    </tr>
+    <tr class="tdbg">
+      <td width="11%" height="30" align="right">用户名称：</td>
+      <td width="89%">{$list.username}</td>
+    </tr>
+    <tr class="tdbg">
+      <td height="30" align="right">用户密码：</td>
+      <td><input name="password" type="password" id="password" size="20" maxlength="15" />
+          <font color="#FF0000">*</font> <font color="#666666">长度为5-15位（字母、数字），不能含有特殊符号</font></td>
+    </tr>
+    <tr class="tdbg">
+      <td height="30" align="right">确认密码：</td>
+      <td><input name="confirmpwd" type="password" id="confirmpwd" size="20" maxlength="15" />
+          <font color="#FF0000">*</font> <font color="#666666">两次输入的密码必须一致</font></td>
+    </tr>
+    <tr class="tdbg">
+      <td height="30" align="right">真实姓名：</td>
+      <td><input value="{$list.name}" name="name" type="text" id="name" size="20" maxlength="15" />
+          <font color="#FF0000">*</font> <font color="#666666">你的姓名</font></td>
+    </tr>
+    <tr class="tdbg">
+      <td height="30" align="right">联系方式：</td>
+      <td><input value="{$list.tel}" name="tel" type="text" id="tel" size="20" maxlength="20" />
+          <font color="#FF0000">*</font> <font color="#666666">例如：13671181498 或 010-12345678</font></td>
+    </tr>
+    <tr class="tdbg">
+      <td height="30" align="right">角色：</td>
+      <td>
+          <volist name="list2" id="vo2">
+            <eq name="vo2.id" value="$list.rid">{$vo2.name}</eq>
+          </volist>
+      </td>
+    </tr>
+    <tr class="tdbg">
+      <td height="30" align="right">&nbsp;</td>
+      <td><input type="submit" name="Submit" value="修改" />
+	  <input type="hidden" name="id" value="{$list.id}" />
+          <input name="button" type="button" onclick="history.go(-1)" value="返回" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+<script language="javascript">
+function checkForm()
+{
+	if(document.form1.password.value!="" && !isStr(document.form1.password.value))
+	{
+		alert("用户密码没有填写或格式不正确！");
+		document.form1.password.focus();
+		return false;
+	}else if(document.form1.password.value != document.form1.confirmpwd.value)
+	{
+		alert("两次输入的密码不一致！");
+		document.form1.password.focus();
+		return false;
+	}else if(document.form1.name.value=="")
+	{
+		alert("你的姓名没有填写");
+		document.form1.name.focus();
+		return false;
+	}else if(!isTel(document.form1.tel.value))
+	{
+		alert("联系方式没有输入或格式不正确");
+		document.form1.tel.focus();
+		return false;
+	}else
+	{
+		return true;
+	}
+}
+function isStr(value)
+{
+	var reg=/^(\w{5,15})$/;
+	if(!reg.test(value))
+	{
+		return false;
+	}else
+	{
+		return true;
+	}
+}
+function isTel(value)
+{
+	var reg=/^([0-9]{11}|[0-9]{3,4}-[0-9]{7,8})$/;
+	if(!reg.test(value))
+	{
+		return false;
+	}else
+	{
+		return true;
+	}
+}
+</script>
