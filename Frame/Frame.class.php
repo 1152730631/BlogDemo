@@ -23,6 +23,7 @@ final class Frame
     /*①网页字符集设置*/
     private static function initCharset(){
         header("content-type:text/html;charset=utf-8");
+        session_start();
     }
     /*②初始化配置文件*/
     private static function initConfig(){

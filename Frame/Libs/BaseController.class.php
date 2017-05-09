@@ -59,5 +59,19 @@ class BaseController
         exit();
     }
 
+    /**
+     * 权限验证
+     */
+    protected function denyAccess()
+    {
+        //判断用户是否登录
+        if (!isset($_SESSION['username'])) {
+            //跳转到登录界面
+            $this->jump("你TMD登录去!!!!", "admin.php?c=User&a=login");
+        }
+    }
+
+
+
 
 }

@@ -15,5 +15,15 @@ class UserModel extends BaseModel
 {
     protected $table = "user";
 
+    public function loginUpdate($data, $id){
+
+        $str = "";
+        foreach($data as $key => $value){
+            $str .= "$key = '$value',";
+        }
+        $str = rtrim($str,",");
+        $sql = "UPDATE user SET $str WHERE id = $id";
+        return $this->pdo->exec($sql);
+    }
 
 }

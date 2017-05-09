@@ -18,7 +18,7 @@ class LinksController extends BaseController
      * 友情链接首页
      */
     public function index(){
-        //$this->denyAccess();
+        $this->denyAccess();
         //获取数据
         $links = LinksModel::getInstance()->fetchAll();
         $this->smarty->assign('links',$links);
@@ -28,7 +28,7 @@ class LinksController extends BaseController
      * 添加友情链接
      */
     public function add(){
-        //$this->denyAccess();
+        $this->denyAccess();
         $this->smarty->display("Links".DS."add.html");
     }
 
@@ -36,7 +36,7 @@ class LinksController extends BaseController
      * 添加友情链接
      */
     public function insert(){
-        //$this->denyAccess();
+        $this->denyAccess();
         $data['domain'] = $_POST['domain'];
         $data['url'] = $_POST['url'];
         $data['orderby'] = $_POST['orderby'];
@@ -52,7 +52,7 @@ class LinksController extends BaseController
      * 删除链接
      */
     public function delete(){
-        //$this->denyAccess();
+        $this->denyAccess();
         $id = $_GET['id'];
 
         if(LinksModel::getInstance()->delete($id)){
@@ -67,7 +67,7 @@ class LinksController extends BaseController
      * 显示修改链接界面
      */
     public function edit(){
-       // $this->denyAccess();
+        $this->denyAccess();
         $id = $_GET['id'];
 
         $link = LinksModel::getInstance()->fetchOne("id = $id");
@@ -78,7 +78,7 @@ class LinksController extends BaseController
      * 更新链接数据方法
      */
     public function update(){
-        //$this->denyAccess();
+        $this->denyAccess();
 
         $date['domain'] = $_POST['domain'];
         $date['url'] = $_POST['url'];
